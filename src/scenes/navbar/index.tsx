@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
+import ActionButton from "@/shared/ActionButton";
 
 type Props = {
   isTopOfPage: boolean;
@@ -45,7 +46,9 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <p>sign in</p>
-                  <button>newsletter</button>
+                  <ActionButton setSelectedPage={setSelectedPage}>
+                    newsletter
+                  </ActionButton>
                 </div>
               </div>
             ) : (
