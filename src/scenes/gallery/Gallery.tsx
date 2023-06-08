@@ -11,6 +11,10 @@ type Props = {
 };
 
 const GalleryProperties = (image: Props) => {
+  const overlayStyles = `p-5 absolute z-30 flex
+  h-[500px] w-[400px] flex-col items-center justify-center
+  whitespace-normal bg-primary-100 text-center text-white
+  opacity-0 transition duration-500 hover:opacity-90`;
   const [isSave, setIsSave] = useState(image.isSave);
 
   const handleSaveChange = (saved: boolean) => {
@@ -18,13 +22,13 @@ const GalleryProperties = (image: Props) => {
     image.onSaveChange(saved);
   };
   return (
-    <>
-      <div className="h-[600px]">
-        <img className="h-[500px] w-[400px]" src={image.imgSrc} />
+    <div className="relative">
+      <div className={overlayStyles}>
         <p>{image.name}</p>
         <SaveButton initial={isSave} onSaveChange={handleSaveChange} />
       </div>
-    </>
+      <img className="h-[500px] w-[400px]" src={image.imgSrc} />
+    </div>
   );
 };
 

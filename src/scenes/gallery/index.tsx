@@ -22,9 +22,10 @@ const Gallery = ({ setSelectedPage }: Props) => {
           <h1 className="basis-3/5 text-xl">gallery.</h1>
         </div>
         {/*images*/}
-        <div className="mt-5  items-center justify-between gap-8 md:grid md:grid-cols-3">
+        <div className="mt-8  items-center justify-between gap-8 md:grid md:grid-cols-3">
           {images.map((image: GalleryType) => (
             <GalleryProperties
+              key={image.id}
               id={image.id}
               name={image.name}
               isSave={image.isSave}
