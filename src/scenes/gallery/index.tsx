@@ -1,8 +1,9 @@
 import { SelectedPage, GalleryType } from "@/shared/types";
 import { motion } from "framer-motion";
 import pictures from "@/pictures.json";
-import GalleryProperties from "./gallery";
+
 import { useState } from "react";
+import GalleryProperties from "./Gallery";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -22,7 +23,7 @@ const Gallery = ({ setSelectedPage }: Props) => {
           <h1 className="basis-3/5 text-xl">gallery.</h1>
         </div>
         {/*images*/}
-        <div className="mt-8  items-center justify-between gap-8 md:grid md:grid-cols-3">
+        <div className="mt-8 items-center justify-between gap-8 md:grid md:grid-cols-3">
           {images.map((image: GalleryType) => (
             <GalleryProperties
               key={image.id}
