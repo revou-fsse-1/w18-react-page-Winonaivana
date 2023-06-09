@@ -23,6 +23,7 @@ const Gallery = ({ setSelectedPage }: Props) => {
     const results = images.filter((result) =>
       result.name.toLowerCase().includes(input.toLowerCase())
     );
+    searchInput;
     setSearchResult(results);
     setSearchInput(input);
   };

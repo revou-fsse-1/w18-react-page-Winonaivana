@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SaveButton from "@/components/SaveButton";
-import { SelectedPage } from "@/shared/types";
 
 type Props = {
   id: number;
