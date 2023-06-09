@@ -37,7 +37,9 @@ const Contact = ({ setSelectedPage }: Props) => {
             {/*header */}
             <motion.div className="md:w-3/5">
               <p className="mb-8 text-xl">contact us.</p>
-              <p className="mb-6">book an appointment with our consultant</p>
+              <p className="mb-6 text-sm">
+                provide us your email and we'll send you the details
+              </p>
             </motion.div>
 
             {/*form  */}
