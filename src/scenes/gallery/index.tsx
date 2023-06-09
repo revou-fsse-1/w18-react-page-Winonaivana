@@ -1,6 +1,6 @@
 import { SelectedPage, GalleryType } from "@/shared/types";
 import { motion } from "framer-motion";
-import pictures from "@/pictures.json";
+import pictures from "@/assets/pictures.json";
 
 import { useState } from "react";
 import GalleryProperties from "./Gallery";

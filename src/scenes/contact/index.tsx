@@ -31,11 +31,21 @@ const Contact = ({ setSelectedPage }: Props) => {
       {!isSubmitted && (
         <motion.div
           onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
-          className="mx-auto w-3/6 pb-20 pt-20 "
+          className="mx-auto w-2/6 pb-20 pt-20 "
         >
           <div>
             {/*header */}
-            <motion.div className="md:w-3/5">
+            <motion.div
+              className="md:w-4/5"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1 }}
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <p className="mb-8 text-xl">contact us.</p>
               <p className="mb-6 text-sm">
                 provide us your email and we'll send you the details
@@ -44,7 +54,16 @@ const Contact = ({ setSelectedPage }: Props) => {
 
             {/*form  */}
             <div className=" ">
-              <motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.2, duration: 1 }}
+                variants={{
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+              >
                 <form target="" onSubmit={onSubmit}>
                   <input
                     id="name"
