@@ -1,20 +1,33 @@
 import { SelectedPage } from "@/shared/types";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import home from "@/assets/home.jpg";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import LearnMore from "@/components/LearnMore";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
 const Home = ({ setSelectedPage }: Props) => {
+  const [isShown, setIsShown] = useState(false);
+
+  const handleLearnMore = () => {
+    setIsShown(true);
+  };
+
+  const handleClose = () => {
+    setIsShown(false);
+  };
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
       {/*HEADER IMAGE */}
+
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
       >
+        {" "}
+        {isShown && <LearnMore onClose={handleClose}></LearnMore>}
         {/*main header */}
         <div className="z-10 mt-32 md:basis-3/5">
           {/*header */}
@@ -46,13 +59,11 @@ const Home = ({ setSelectedPage }: Props) => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <AnchorLink
-              className=" text-sm font-bold text-primary-100  hover:underline"
-              onClick={() => setSelectedPage(SelectedPage.ContactUs)}
-              href={`#${SelectedPage.ContactUs}`}
-            >
-              <p>learn more</p>
-            </AnchorLink>
+            <div className=" bold">
+              <button onClick={handleLearnMore} className="hover:underline ">
+                learn more
+              </button>
+            </div>
           </motion.div>
         </div>
         <motion.div

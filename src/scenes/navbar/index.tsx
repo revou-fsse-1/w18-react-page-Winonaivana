@@ -53,17 +53,17 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               </div>
             ) : (
               <button
-                className="  p-2"
+                className="p-2"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}
               >
-                <Bars3Icon className="h-6 w-6 text-black" />
+                <Bars3Icon className=" h-6 w-6 text-black" />
               </button>
             )}
           </div>
         </div>
       </div>
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed bottom-0 right-0 z-40 h-full w-[300px] bg-gray-50 drop-shadow-xl">
+        <div className="fixed bottom-0 right-0 z-50 h-full w-[300px] bg-gray-50 drop-shadow-xl">
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
               <XMarkIcon className="h-6 w-6 text-gray-400" />

@@ -1,5 +1,6 @@
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
 const Contact = ({ setSelectedPage }: Props) => {
   const inputStyle = `mt-4 w-full border border-black px-5 py-2 placeholder-gray`;
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const {
     register,
     trigger,
@@ -17,8 +19,11 @@ const Contact = ({ setSelectedPage }: Props) => {
 
   const onSubmit = async (e: any) => {
     const isValid = await trigger();
-    if (!isValid) {
-      e.preventDefault();
+    e.preventDefault();
+    if (isValid) {
+      setIsSubmitted(true);
+    } else if (!isValid) {
+      setIsSubmitted(false);
     }
   };
   return (
@@ -37,13 +42,9 @@ const Contact = ({ setSelectedPage }: Props) => {
           {/*form  */}
           <div className=" ">
             <motion.div>
-              <form
-                target="_blank"
-                onSubmit={onSubmit}
-                action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
-                method="POST"
-              >
+              <form target="" onSubmit={onSubmit}>
                 <input
+                  id="name"
                   className={inputStyle}
                   type="text"
                   placeholder="name"
@@ -53,7 +54,7 @@ const Contact = ({ setSelectedPage }: Props) => {
                   })}
                 />
                 {errors.name && (
-                  <p className=" text-primary-500">
+                  <p className=" text-sm">
                     {errors.name.type === "required" &&
                       "This field is required."}
                     {errors.name.type === "maxLength" &&
@@ -71,7 +72,7 @@ const Contact = ({ setSelectedPage }: Props) => {
                   })}
                 />
                 {errors.email && (
-                  <p className=" text-primary-500">
+                  <p className=" text-sm">
                     {errors.email.type === "required" &&
                       "This field is required."}
                     {errors.email.type === "pattern" &&
@@ -102,6 +103,12 @@ const Contact = ({ setSelectedPage }: Props) => {
                   submit
                 </button>
               </form>
+              {isSubmitted && (
+                <div className="text-center">
+                  <h2 className="mb-8 mt-4 text-xl">message sent.</h2>
+                  <p>thank you for trusting us</p>
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
