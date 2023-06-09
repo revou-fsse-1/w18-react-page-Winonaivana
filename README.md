@@ -6,7 +6,7 @@ An interior design company website that focuses on simplicity for its design and
 
 ![preview](/src/assets/preview.png)
 
-Take a look: [https://w18-react-page-winonaivana-o65tf4cfs-revou.vercel.app/]
+Take a look: [https://w18-react-page-winonaivana-git-main-revou.vercel.app/]
 
 # Installation
 
